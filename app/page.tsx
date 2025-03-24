@@ -2,26 +2,26 @@
 import { ShootingStars } from "@/components/shooting-stars"
 import { StarsBackground } from "@/components/stars-background"
 import Link from "next/link"
-import React, { useRef } from "react"
+import { useRef } from "react"
 
-const projects = [
-    {
-        name: "QuickStack",
-        description:
-            "The NextJS template with everything you'll need to launch a product or service.",
-        url: "https://template.codewitch.io/",
-        badges: ["Work in progress"],
-    },
-    {
-        name: "HEMA Broadcast",
-        description: "An easier way of creating overlays for HEMA events",
-        url: "https://hema.codewitch.io/",
-        badges: ["Open source", "Work in progress"],
-    },
-]
+// const projects = [
+//     {
+//         name: "QuickStack",
+//         description:
+//             "The NextJS template with everything you'll need to launch a product or service.",
+//         url: "https://template.codewitch.io/",
+//         badges: ["Work in progress"],
+//     },
+//     {
+//         name: "HEMA Broadcast",
+//         description: "An easier way of creating overlays for HEMA events",
+//         url: "https://hema.codewitch.io/",
+//         badges: ["Open source", "Work in progress"],
+//     },
+// ]
 
 export default function Home() {
-    const projectsRef = useRef<HTMLDivElement>(null)
+    const servicesRef = useRef<HTMLDivElement>(null)
 
     return (
         // Container
@@ -41,11 +41,11 @@ export default function Home() {
                 </h1>
                 {/* Description */}
                 <div className="text-subtle animate-fade-in">
-                    <p>
-                        Exploring my curiosity and sharing what I learn along
-                        the way.
+                    <p className="max-w-prose">
+                        I help growing brands and startups gain an unfair
+                        advantage through elegant, engaging, and efficient
+                        websites.
                     </p>
-                    <p>Engineer, entrepreneur, cat mother.</p>
                 </div>
                 {/* Links and socials */}
                 <div className="*:text-discreet flex animate-fade-in gap-6 text-3xl *:transition-all hover:*:text-base-content md:text-4xl">
@@ -66,19 +66,19 @@ export default function Home() {
                 <div
                     className="text-subtle flex-center mb-4 cursor-pointer flex-col font-light hover:text-base-content"
                     onClick={() =>
-                        projectsRef.current?.scrollIntoView({
+                        servicesRef.current?.scrollIntoView({
                             block: "start",
                             inline: "nearest",
                             behavior: "smooth",
                         })
                     }
                 >
-                    <p>Projects</p>
+                    <p>Services</p>
                     <i className="fa-solid fa-chevron-down text-xl" />
                 </div>
             </div>
             {/* Projects list */}
-            <div
+            {/* <div
                 className="text-subtle my-24 flex animate-fade-in flex-col gap-12 px-8 font-light"
                 ref={projectsRef}
             >
@@ -101,6 +101,39 @@ export default function Home() {
                         <p>{description}</p>
                     </Link>
                 ))}
+            </div> */}
+            {/* Services */}
+            <div
+                className="text-subtle my-24 flex max-w-prose animate-fade-in flex-col gap-12 px-8 font-light"
+                ref={servicesRef}
+            >
+                <div className="flex flex-col gap-2 transition-all hover:text-base-content">
+                    <span className="flex items-center justify-between">
+                        <h3>Software Development</h3>
+                    </span>
+                    <p className="text-subtle">
+                        Got an idea for a web app or need a software solution
+                        that actually makes your life easier? I help businesses
+                        and entrepreneurs turn concepts into polished,
+                        user-friendly products. Whether it’s building from the
+                        ground up or improving what you already have, I make
+                        sure your tech works <i>for</i> you, not against you.
+                    </p>
+                    <p className="text-subtle">
+                        Great software isn’t just about writing code—it’s about
+                        creating something people love to use. With 8 years of
+                        engineering and design experience, I focus on building
+                        intuitive, user-friendly solutions that actually solve
+                        problems. I think outside the box, bringing creative
+                        ideas and fresh perspectives to every project.
+                    </p>
+                    <Link
+                        href="mailto:hanna@codewitch.io"
+                        className="mt-8 self-center"
+                    >
+                        <button className="btn btn-outline">Let’s talk!</button>
+                    </Link>
+                </div>
             </div>
         </>
     )
